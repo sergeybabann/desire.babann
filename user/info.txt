@@ -3,9 +3,9 @@
 https://www.youtube.com/watch?v=Nxg6UfofZX0
 
 * new video stop: 
-25.11
+второе прохождение видео стоп 7.15
 
-* old video stop: 
+* первое прохождение video stop: 
 3.24.36
 
 * github url: 
