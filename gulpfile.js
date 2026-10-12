@@ -1,25 +1,31 @@
-const { src, dest, watch, parallel, series } = require('gulp')
+const { src, dest, watch, parallel, series } = require('gulp');
 
-const scss = require('gulp-sass')(require('sass'))
-const concat = require('gulp-concat')
-const browserSync = require('browser-sync').create()
-const uglify = require('gulp-uglify-es').default
-const autoprefixer = require('gulp-autoprefixer')
-const imagemin = require('gulp-imagemin')
-const del = require('del')
+const browserSync = require('browser-sync').create();
+const scss = require('gulp-sass')(require('sass'));
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify-es').default;
+const autoprefixer = require('gulp-autoprefixer');
+const imagemin = require('gulp-imagemin');
+const del = require('del');
 
+// ---- Сервер ----
 function browsersync() {
   browserSync.init({
     server: {
-      baseDir: 'app/',
+      baseDir: 'app/',                    // ← отдаём папку app
     },
-  })
+    browser: 'C:\\Program Files\\Yandex\\YandexBrowser\\Application\\browser.exe',
+    notify: false,
+    open: true,                            // открыть браузер сразу
+  });
 }
 
+// ---- Очистка dist ----
 function cleanDist() {
-  return del('dist')
+  return del('dist');
 }
 
+// ---- Картинки ----
 function images() {
   return src('app/images/**/*')
     .pipe(
@@ -32,9 +38,10 @@ function images() {
         }),
       ])
     )
-    .pipe(dest('dist/images'))
+    .pipe(dest('dist/images'));
 }
 
+// ---- Скрипты ----
 function scripts() {
   return src([
     'node_modules/jquery/dist/jquery.js',
@@ -44,9 +51,10 @@ function scripts() {
     .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(dest('app/js'))
-    .pipe(browserSync.stream())
+    .pipe(browserSync.stream());
 }
 
+// ---- Стили ----
 function styles() {
   return src('app/scss/style.scss')
     .pipe(scss({ outputStyle: 'compressed' }))
@@ -58,9 +66,10 @@ function styles() {
       })
     )
     .pipe(dest('app/css'))
-    .pipe(browserSync.stream())
+    .pipe(browserSync.stream());
 }
 
+// ---- Сборка в dist ----
 function build() {
   return src(
     [
@@ -70,21 +79,24 @@ function build() {
       'app/*.html',
     ],
     { base: 'app' }
-  ).pipe(dest('dist'))
+  ).pipe(dest('dist'));
 }
 
+// ---- Наблюдение ----
 function watching() {
-  watch(['app/scss/**/*.scss'], styles)
-  watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts)
-  watch(['app/*.html']).on('change', browserSync.reload)
+  watch(['app/scss/**/*.scss'], styles);
+  watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
+  watch(['app/*.html']).on('change', browserSync.reload);
 }
 
-exports.styles = styles
-exports.watching = watching
-exports.browsersync = browsersync
-exports.scripts = scripts
-exports.images = images
-exports.cleanDist = cleanDist
+// ---- Экспорты ----
+exports.styles = styles;
+exports.watching = watching;
+exports.browsersync = browsersync;
+exports.scripts = scripts;
+exports.images = images;
+exports.cleanDist = cleanDist;
+exports.build = series(cleanDist, images, build);
 
-exports.build = series(cleanDist, images, build)
-exports.default = parallel(styles, scripts, browsersync, watching)
+// default: компилируем всё → поднимаем сервер → следим за изменениями
+exports.default = series(parallel(styles, scripts), parallel(browsersync, watching));
