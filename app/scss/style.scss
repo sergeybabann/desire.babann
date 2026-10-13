@@ -1,8 +1,8 @@
-@import 'vars';
-@import 'fonts';
-@import 'reset';
-@import 'libs';
-@import 'global';
+@import "vars";
+@import "fonts";
+@import "reset";
+@import "libs";
+@import "global";
 
 .header {
   &__inner {
@@ -25,7 +25,7 @@
 }
 
 .menu {
-  padding-right: 15px;
+  padding-left: 15px;
   &__list {
     display: flex;
   }
@@ -78,7 +78,7 @@
     display: inline-block;
     position: relative;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       background-image: url(../images/envelope.svg);
       top: 8px;
@@ -99,7 +99,7 @@
     border: 1px solid rgba($title, 0.7);
     width: 100%;
     &::placeholder {
-      font-family: 'Open Sans', sans-serif;
+      font-family: "Open Sans", sans-serif;
       font-size: 16px;
       line-height: 27;
       color: #a1a1a1;
@@ -128,7 +128,7 @@
     padding-left: 28px;
     position: relative;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 3px;
       left: 0;
@@ -236,7 +236,7 @@
     margin-bottom: 17px;
     padding-bottom: 17px;
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: 0;
       left: 0;
@@ -283,7 +283,7 @@
 
     &::after {
       // line в макете
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       width: 185px;
