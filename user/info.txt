@@ -3,14 +3,14 @@
 https://www.youtube.com/watch?v=Nxg6UfofZX0
 
 * new video stop: 
-второе прохождение видео стоп 54.17
+второе прохождение видео стоп 1.07.10
 
 * первое прохождение video stop: 
 3.24.36
 
 * github url: 
 
-https://github.com/sergeybabann/desire-original.babann   
+https://github.com/sergeybabann/desire.babann
 
 
 
@@ -18,7 +18,6 @@ https://github.com/sergeybabann/desire-original.babann
 Верстка сайта. Верстаю многостраничный сайт, использую GULP, SCSS, БЭМ 
 
 
-Изменил для проверки
 
 
 
