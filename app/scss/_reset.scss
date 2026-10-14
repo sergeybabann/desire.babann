@@ -30,7 +30,7 @@ blockquote,
 dl,
 dd {
   margin: 0;
-  font-size: inherit;
+  font-size: inherit; // наследование от родителя
 }
 
 ul[class] {

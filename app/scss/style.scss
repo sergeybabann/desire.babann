@@ -43,8 +43,25 @@
 //---------- FOOTER ----------//
 .footer {
   &__content {
+    background: #dfdfdf;
+    padding: 60px 0 80px;
+  }
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__info-title {
+    color: title;
+    @extend %title-font;
+    margin-bottom: 14px;
+    line-height: 23px;
+  }
+  &__info-text {
   }
   &__copyright {
     background-color: $title;
+    color: #a1a1a1;
+    text-align: center;
+    padding: 42px 0 41px;
   }
 }
