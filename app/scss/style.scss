@@ -4,6 +4,7 @@
 @import "libs";
 @import "global";
 
+//---------- HEADER ----------//
 .header {
   &__inner {
     display: flex;
@@ -22,6 +23,7 @@
   margin: 0 auto;
 }
 
+//---------- MENU ----------//
 .menu {
   padding-right: 15px;
   &__list {
@@ -35,5 +37,14 @@
     @extend %title-font;
     color: rgba(54, 56, 56, 0.9);
     line-height: 22px;
+  }
+}
+
+//---------- FOOTER ----------//
+.footer {
+  &__content {
+  }
+  &__copyright {
+    background-color: $title;
   }
 }
