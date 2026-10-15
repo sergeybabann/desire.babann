@@ -50,6 +50,9 @@
     display: flex;
     justify-content: space-between;
   }
+  &__footer-info {
+    width: 540px;
+  }
   &__info-title {
     color: title;
     @extend %title-font;
@@ -57,11 +60,156 @@
     line-height: 23px;
   }
   &__info-text {
+    margin-bottom: 16px;
+    max-width: 475px;
+  }
+  &__info-email {
+    font-weight: 600;
+    font-size: 14;
+    color: $title;
+    margin-bottom: 22px;
+    padding-left: 30px;
+    display: inline-block;
+    position: relative;
+    &::before {
+      content: "";
+      background-image: url(../images/envelope.svg);
+      position: absolute;
+      left: 0;
+      width: 16px;
+      height: 12px;
+      top: 8px;
+    }
+  }
+  &__form {
+    display: flex;
+  }
+  &__form-input {
+    padding: 6px 10px 6px 18px;
+    width: 100%;
+    border-radius: 21px;
+    background-color: transparent;
+    opacity: 0.7;
+    border: 1px solid rgba($title, 0.7);
+    &::placeholder {
+      font-family: "Open sans", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 27;
+      color: #a1a1a1;
+    }
+  }
+  &__form-button {
+    background-color: $title;
+    border: none;
+    color: #fffff0;
+    border-radius: 21px;
+    font-weight: 600;
+    padding: 6px 12px;
+    min-width: 160px;
+    margin-left: 9px;
+    cursor: pointer;
+  }
+  &__social {
+    width: 125px;
+    margin-right: auto;
+    margin-left: 100px;
+  }
+
+  &__social-link {
+    padding-left: 28px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 0;
+      width: 16px;
+      height: 16px;
+    }
+  }
+  &__social-link--facebook::before {
+    background-image: url(../images/facebook.svg);
+    width: 14px;
+    height: 14px;
+  }
+  &__social-link--instagram::before {
+    background-image: url(../images/instagram.svg);
+    width: 14px;
+    height: 15px;
+    top: 4px;
+  }
+  &__social-link--pinterest::before {
+    background-image: url(../images/pinterest.svg);
+  }
+  &__social-link--whatsapp::before {
+    background-image: url(../images/whatsapp.svg);
+    width: 14px;
+    height: 14px;
+  }
+  &__social-link--youtube::before {
+    background-image: url(../images/youtube.svg);
+    width: 16px;
+    height: 12px;
+    top: 4px;
+  }
+  &__social-item,
+  &__menu-item {
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  &__social-link,
+  &__menu-link {
+    color: #707070;
+  }
+  &__menu {
+    margin-right: 60px;
+    width: 125px;
   }
   &__copyright {
     background-color: $title;
     color: #a1a1a1;
     text-align: center;
     padding: 42px 0 41px;
+  }
+}
+
+//---------- Rightside Menu ----------//
+.rightside-menu {
+  position: absolute;
+  width: 100%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  max-width: 694px;
+  background-color: #fff;
+  padding-top: 40px;
+
+  &__close {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-left: 50px;
+    margin-bottom: 60px;
+  }
+  &__content {
+    text-align: center;
+    min-width: 485px;
+    margin: 0 auto;
+  }
+  &__logo {
+    margin-bottom: 40px;
+    display: inline-block;
+  }
+  &__title {
+    color: $title;
+    @extend %title-font;
+    font-size: 36px;
+    line-height: 51px;
+  }
+  &__text {
+    margin-bottom: 75px;
   }
 }
